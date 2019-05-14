@@ -1,0 +1,78 @@
+ahoyapi: v2
+usage: CLI utilities
+commands:
+
+  start:
+    usage: Start local environment, everything, aggressively.
+    cmd: |
+      docker-compose up -d --build
+
+  stop:
+    usage: Stops the local environment after saving a sql dump safely
+    cmd: |
+      ahoy db-export
+      docker-compose down
+
+  rebuild:
+    usage: Destroy and rebuild everything
+    cmd: |
+      docker-compose up --force-recreate -d --build
+
+  install:
+    usage: Installs the website. Run Start first.
+    cmd: |
+      ahoy composer install
+      docker exec drudev_drupal_1 /bin/bash -c "drush sql-cli < db-exports/initial.sql"
+
+  run:
+    usage: Runs a command inside docker container
+    cmd: |
+      docker exec drudev_drupal_1 $@
+
+  shell:
+    usage: Opens a shell in drupal container
+    cmd: |
+      docker exec -it drudev_drupal_1 /bin/bash
+
+  drush:
+    usage: Runs drush inside docker container
+    cmd: |
+      ahoy run drush $@
+
+  composer:
+    usage: Runs composer inside docker container
+    cmd: |
+      ahoy run composer $@
+
+  cr:
+    usage: Clears cache
+    cmd: |
+      ahoy drush cr
+
+  config-export:
+    usage: Exports config
+    cmd: |
+      ahoy drush config-export
+
+  config-import:
+    usage: Imports config
+    cmd: |
+      ahoy drush config-import
+
+  db-export:
+    usage: Exports Database
+    cmd: |
+      ahoy run mkdir /app/db-exports
+      timestamp=$(date "+%F-%T")
+      ahoy drush sql:dump --result-file=/app/db-exports/mariadb-${timestamp}.sql
+
+  module-install:
+     usage: Adds and installs a drupal module on a website
+     cmd: |
+       if [ -z $1 ]; then
+         echo -n "Usage: ahoy module-install <module-name>:<version-specifier>"
+         exit 1
+       fi
+       ahoy composer require "drupal/$1"
+       module_specs_arr=(${1//:/ })
+       ahoy drush pm-enable ${module_specs_arr[0]} -y
