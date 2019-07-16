@@ -1,0 +1,19 @@
+name: Bootstrap Barrio Custom Subtheme
+type: theme
+description: 'Custom Bootstrap Barrio SubTheme.'
+# version: VERSION
+# core: 8.x
+base theme: bootstrap_barrio
+
+libraries:
+  - bootstrap_barrio_custom/bootstrap_cdn
+  - bootstrap_barrio_custom/global-styling
+
+regions:
+  content: Content
+
+# Information added by Drupal.org packaging script on 2019-02-28
+version: '8.x-4.22'
+core: '8.x'
+project: 'bootstrap_barrio'
+datestamp: 1551325396

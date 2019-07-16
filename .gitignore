@@ -3,7 +3,10 @@
 /vendor/
 /web/core/
 /web/modules/contrib/
-/web/themes/contrib/
+web/themes/contrib/adaptivetheme
+web/themes/contrib/bootstrap
+web/themes/contrib/bootstrap_barrio
+web/themes/contrib/nexus
 /web/profiles/contrib/
 /web/libraries/
 

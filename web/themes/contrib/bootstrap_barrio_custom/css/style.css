@@ -1,0 +1,165 @@
+/**
+ * @file
+ * Subtheme specific CSS.
+ */
+
+
+
+#main-wrapper {
+  background: #ebeded !important;
+}
+
+/**
+* Main containing div.
+*/
+.drd_content_tiles_page .drd_tiles_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+}
+
+/**
+* Main tile wrapper
+*/
+.drd_content_tiles_page .drd_tile_wrapper {
+  flex-basis: 100%;
+  margin-right: 15px;
+  background-color: #ffffff;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+/**
+* Tile top corner label
+*/
+.drd_content_tiles_page .drd_tile_wrapper .drd_tile--label {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: inline-block;
+  padding: 0 10px;
+  color: white;
+  background-color: darkgray;
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+/**
+* Tile image wrapper div
+*/
+.node__content.drd_tile--image {
+  margin-top: 0; /* Reset .node__content margin-top: 10px */
+}
+
+/**
+* Tile image sub wrapper
+*/
+.node__content.drd_tile--image .drd_field_tile_image {
+  margin-right: 0; /* Reset .field-type-image margin-right: 1em */
+}
+
+/**
+* Tile image tag
+*/
+.node__content.drd_tile--image .drd_field_tile_image img {
+  width: 100% !important; /* To forcefully bypass the hardcoded 'width' attribute set by the editor */
+  height: 100% !important; /* To forcefully bypass the hardcoded 'height' attribute set by the editor */
+  margin-bottom: 0; /* Reset .field-type-image img: 1em */
+}
+
+/**
+* Tile title wrapper div
+*/
+.drd_tile--title {
+  margin-left: 20px;
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  color: #61696B;
+}
+
+/**
+* Tile button wrapper div
+*/
+.node__content.drd_tile--button {
+  margin-left: 20px;
+}
+
+/**
+* Tile button
+*/
+.drd_utils--button-pill {
+  background-color: #EC0056;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+/**
+* Tile button link
+*/
+.drd_utils--button-pill .field--name-field-tile-button > a {
+  font-size: 14px;
+  color: white;
+  font-family: 'Karla', sans-serif;
+}
+
+/**
+* MEDIA QUERIES SECTION
+*/
+
+/* Target 1,584 px resolution device */
+@media (min-width: 99em) {
+  .container {
+    max-width: 1600px !important;
+  }
+}
+
+/* Target 992px to 1184 px resolution devices */
+@media all and (min-width: 62em) and (max-width: 74em) {
+  .container {
+    max-width: 900px !important;
+  }
+
+  .drd_tile--title {
+    font-size: 23px;
+  }
+
+  .drd_utils--button-pill .field--name-field-tile-button > a {
+    font-size: 12px;
+  }
+}
+
+/* Target 768px to 976px resolution devices */
+@media all and (min-width: 48em) and (max-width: 61em) {
+  .container {
+    max-width: 700px !important;
+  }
+
+  .drd_tile--title {
+    font-size: 20px;
+  }
+
+  .drd_utils--button-pill .field--name-field-tile-button > a {
+    font-size: 11px;
+  }
+}
+
+/* Target 320px to 752px resolution devices */
+@media all and (min-width: 19em) and (max-width: 47em) {
+
+  .drd_content_tiles_page .drd_tiles_container {
+    flex-wrap: wrap;
+  }
+
+  .drd_content_tiles_page .drd_tile_wrapper {
+    margin-bottom: 30px;
+  }
+}
