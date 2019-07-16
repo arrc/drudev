@@ -22,17 +22,17 @@ commands:
     usage: Installs the website. Run Start first.
     cmd: |
       ahoy composer install
-      docker exec drudev_drupal_1 /bin/bash -c "drush sql-cli < db-exports/initial.sql"
+      docker exec drudev-master_drupal_1 /bin/bash -c "drush sql-cli < db-exports/initial.sql"
 
   run:
     usage: Runs a command inside docker container
     cmd: |
-      docker exec drudev_drupal_1 $@
+      docker exec drudev-master_drupal_1 $@
 
   shell:
     usage: Opens a shell in drupal container
     cmd: |
-      docker exec -it drudev_drupal_1 /bin/bash
+      docker exec -it drudev-master_drupal_1 /bin/bash
 
   drush:
     usage: Runs drush inside docker container
